@@ -22,7 +22,7 @@ function Home() {
     }
   }
 
-  const Add = (name,price) =>{
+  const Add = (img,name,price) =>{
     // if(!localStorage.getItem("user")){
     //   toast("Please login to add it to cart!");
     //   return
@@ -30,7 +30,7 @@ function Home() {
     // setCart([JSON.parse(localStorage.getItem("cart"))])
     var present = false
     cart.length!==0 && Object.keys(cart).map((item,index)=>{
-      if(item == name){
+      if(item === name){
         cart[item].quantity += 1
         present = true
         // localStorage.setItem("cart",JSON.stringify(cart))
@@ -38,7 +38,7 @@ function Home() {
     })   
     if (present === false){
       //console.log('y',name);
-      cart[name] = {price:price,quantity:1}
+      cart[name] = {img,price,quantity:1}
       // localStorage.setItem("cart",JSON.stringify(cart))
     } 
     console.log(cart); 
@@ -101,7 +101,7 @@ function Home() {
                       <div className="card-body">
                         <h5 className="card-title" >{(value.name).toUpperCase()}</h5>
                         <p className="card-text" >Rs.{value.price}</p>
-                        <button onClick={() => Add(value.name,value.price)} data-dish="" name="id" value=""  type="submit" className="btn btn-primary " id="add-to-cart">ADD</button>
+                        <button onClick={() => Add(value.img,value.name,value.price)} data-dish="" name="id" value=""  type="submit" className="btn btn-primary " id="add-to-cart">ADD</button>
                         {/* <div className='lower-card'>
                           <input type='number' ref={inputRef} placeholder='0' min="0" />
                           <button onClick={val} data-dish="" name="id" value=""  type="submit" className="btn btn-primary " id="add-to-cart">ADD</button>

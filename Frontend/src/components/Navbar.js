@@ -2,6 +2,7 @@ import '../assets/nav.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from './Cart';
 function UpNav({cart}) {
   const notify = () => toast("Logged Out");
   const [sideBar, setsideBar] = useState(false)
@@ -141,11 +142,7 @@ function UpNav({cart}) {
           {/* <h1 style={{color:'whitesmoke'}}>hello</h1> */}
           <div>{
           shopCart ? (
-            Object.keys(shopCart).map(key => (
-              <div key={key}>
-                  <h1 style={{color:'whitesmoke',fontSize:"100px"}}>{key}: {shopCart[key]['price']},{shopCart[key]['quantity']}</h1>
-              </div>
-          ))
+            <Cart cart = {cart} />
           ) 
           :(<h1 style={{color:'whitesmoke',fontSize:"100px"}}>Nope</h1>)
           
