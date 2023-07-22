@@ -28,7 +28,8 @@ function UpNav({cart}) {
 
   const openNav = () => {
     setsideBar(true)
-    console.log(cart);
+    //console.log(cart);
+    console.log('shop',shopCart);
   }
 
   const closeNav = () =>{
@@ -137,11 +138,18 @@ function UpNav({cart}) {
       sideBar ? (
         <div id="mySidenav" className="sidenav">
           <a  className="closebtn" onClick={closeNav}>&times;</a>
-          <a>{
-          shopCart ? Object.keys(cart).map(function(key, index) {
-            <p>{cart[key]}</p>
-          }) :(<a style={{color:'whitesmoke',fontSize:"100px"}}>hello</a>)
-        }</a>
+          {/* <h1 style={{color:'whitesmoke'}}>hello</h1> */}
+          <div>{
+          shopCart ? (
+            Object.keys(shopCart).map(key => (
+              <div key={key}>
+                  <h1 style={{color:'whitesmoke',fontSize:"100px"}}>{key}: {shopCart[key]['price']},{shopCart[key]['quantity']}</h1>
+              </div>
+          ))
+          ) 
+          :(<h1 style={{color:'whitesmoke',fontSize:"100px"}}>Nope</h1>)
+          
+        }</div>
           
         </div>
       ) : (<div></div>)
