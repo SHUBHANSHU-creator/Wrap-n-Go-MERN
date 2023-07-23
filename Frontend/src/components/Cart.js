@@ -1,23 +1,38 @@
 import { useState } from 'react';
 import '../assets/cart.css'
-const Cart = ({cart})=>{
+
+
+
+const Cart = ({cart,total})=>{
 const [shopCart,setshopCart] = useState(cart)
 
 return(
-    <div>
+    <div style={{width:'90%'}}>
         <h1 className='head'>Cart</h1>
         {
             shopCart? (
-                Object.keys(shopCart).map(key => (
-                    <div key={key}>
+                <>
+                <div>
+                    {Object.keys(shopCart).map(key => (
+                    <div className='orders' key={key}>
                         <div className='small-card'>
-                            {key}
-                            {/* <img src={`/food/${shopCart[key]['img']}.jpg`}></img> */}
-                            <p style={{color:'whitesmoke'}}>{shopCart[key]['price']}</p>
-                            <p style={{color:'whitesmoke'}}>{shopCart[key]['quantity']}</p>
+                            <img src={`./food/${shopCart[key]['img']}.jpg`}></img>
+                            <p>{key.toUpperCase()}</p>
+                            <p style={{ color: 'whitesmoke' }}>{shopCart[key]['price']}</p>
+                            <p style={{ color: 'whitesmoke' }}>{shopCart[key]['quantity']}</p>
                         </div>
                     </div>
-                ))
+                    ))}
+                </div>
+                <div className='total'>
+                    <p>Total Amout = Rs.{total}/-</p>
+                    <button>
+                        <a href="Order">
+                            Order your Meal
+                        </a>
+                    </button>                
+                </div>
+                </>
             ) : (<h1 style={{color:'whitesmoke'}}>Cart is Empty</h1>)
         }
         

@@ -3,11 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from './Cart';
-function UpNav({cart}) {
+function UpNav({cart,total}) {
   const notify = () => toast("Logged Out");
   const [sideBar, setsideBar] = useState(false)
   const [loggedin, setloggedin] = useState(false)
   const [shopCart, setshopCart] = useState(cart)
+  const [sum, setTotal] = useState(total)
   
 
   const Logout = async () =>{
@@ -142,7 +143,7 @@ function UpNav({cart}) {
           {/* <h1 style={{color:'whitesmoke'}}>hello</h1> */}
           <div>{
           shopCart ? (
-            <Cart cart = {cart} />
+            <Cart cart = {cart} total= {total} />
           ) 
           :(<h1 style={{color:'whitesmoke',fontSize:"100px"}}>Nope</h1>)
           

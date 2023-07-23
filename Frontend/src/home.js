@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Home() {
   const [dishes,setDishes] = useState({})
   const [cart, setCart] = useState({})
+  const [total, setTotal] = useState(0)
   const inputRef = useRef(null);
 
   const getDishes = async () =>{
@@ -32,6 +33,8 @@ function Home() {
     cart.length!==0 && Object.keys(cart).map((item,index)=>{
       if(item === name){
         cart[item].quantity += 1
+        cart[item]['price'] += price
+        setTotal(total + price)
         present = true
         // localStorage.setItem("cart",JSON.stringify(cart))
       }
@@ -39,6 +42,7 @@ function Home() {
     if (present === false){
       //console.log('y',name);
       cart[name] = {img,price,quantity:1}
+      setTotal(total + price)
       // localStorage.setItem("cart",JSON.stringify(cart))
     } 
     console.log(cart); 
@@ -56,7 +60,7 @@ function Home() {
   return (
       <div>
     
-        <UpNav cart = {cart} />
+        <UpNav cart = {cart} total = {total} />
         
         <div className="cont">
           <div className="inner_cont">
