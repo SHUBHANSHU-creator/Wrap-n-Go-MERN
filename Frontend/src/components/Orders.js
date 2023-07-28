@@ -1,8 +1,8 @@
 import '../assets/orders.css'
 import { useState } from "react";
 const Orders = ()=>{
-    console.log(JSON.parse(localStorage.getItem('cart')));
     const [shopCart,setshopCart] = useState(JSON.parse(localStorage.getItem('cart')))
+    const total = localStorage.getItem('total')
 
 return(
     <div>
@@ -16,6 +16,8 @@ return(
             </div>
         </div>
         ))}
+
+
     </div>
 )
 }

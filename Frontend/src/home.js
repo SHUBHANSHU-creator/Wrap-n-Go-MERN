@@ -37,6 +37,7 @@ function Home() {
         setTotal(total + price)
         present = true
         localStorage.setItem("cart",JSON.stringify(cart))
+        localStorage.setItem('total', total  + price)
       }
     })   
     if (present === false){
@@ -44,8 +45,9 @@ function Home() {
       cart[name] = {img,price,quantity:1}
       setTotal(total + price)
       localStorage.setItem("cart",JSON.stringify(cart))
+      localStorage.setItem('total', total + price)
     } 
-    console.log(cart); 
+  
   }
 
   const val = () =>{
