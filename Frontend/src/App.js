@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './home';
 import Register from './components/Register';
 import Login from './components/Login';
-import Orders from './Orders';
+import Orders from './components/Orders';
 
 export default function App() {
   return (

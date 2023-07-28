@@ -36,14 +36,14 @@ function Home() {
         cart[item]['price'] += price
         setTotal(total + price)
         present = true
-        // localStorage.setItem("cart",JSON.stringify(cart))
+        localStorage.setItem("cart",JSON.stringify(cart))
       }
     })   
     if (present === false){
       //console.log('y',name);
       cart[name] = {img,price,quantity:1}
       setTotal(total + price)
-      // localStorage.setItem("cart",JSON.stringify(cart))
+      localStorage.setItem("cart",JSON.stringify(cart))
     } 
     console.log(cart); 
   }

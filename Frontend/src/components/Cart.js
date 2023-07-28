@@ -5,6 +5,7 @@ import '../assets/cart.css'
 
 const Cart = ({cart,total})=>{
 const [shopCart,setshopCart] = useState(cart)
+console.log('cart',shopCart);
 
 return(
     <div style={{width:'90%'}}>
@@ -27,7 +28,7 @@ return(
                 <div className='total'>
                     <p>Total Amout = Rs.{total}/-</p>
                     <button>
-                        <a href="Order">
+                        <a href="Orders">
                             Order your Meal
                         </a>
                     </button>                

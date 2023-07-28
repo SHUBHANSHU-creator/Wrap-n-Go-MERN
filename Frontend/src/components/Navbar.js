@@ -31,7 +31,7 @@ function UpNav({cart,total}) {
   const openNav = () => {
     setsideBar(true)
     //console.log(cart);
-    console.log('shop',shopCart);
+    console.log('cart',typeof(eval(localStorage.getItem('cart'))));
   }
 
   const closeNav = () =>{
