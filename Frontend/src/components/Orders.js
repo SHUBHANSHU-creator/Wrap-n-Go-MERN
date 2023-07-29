@@ -1,8 +1,11 @@
 import '../assets/orders.css'
 import { useState } from "react";
+import OrderModal from './OrderModal';
+
 const Orders = ()=>{
     const [shopCart,setshopCart] = useState(JSON.parse(localStorage.getItem('cart')))
     const total = localStorage.getItem('total')
+    const [openModal, setopenModal] = useState(false)
 
 return(
     <div>
@@ -16,7 +19,17 @@ return(
             </div>
         </div>
         ))}
-
+        
+        
+        <div className='total'>
+            <h2 style={{ color: 'black' }}>Your Total: Rs.{total}/-</h2>
+            <button onClick={()=>(setopenModal(true))}>
+                Order Now
+            </button>
+        </div>
+        {
+            openModal ? (<OrderModal />) : (<div></div>)
+        }
 
     </div>
 )
